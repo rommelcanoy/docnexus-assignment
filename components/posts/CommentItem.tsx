@@ -38,7 +38,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
       <div className="flex flex-row items-start gap-3">
         <Avatar userId={data.user.id} />
         <div>
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-col">
             <p
               onClick={goToUser}
               className="
@@ -57,10 +57,11 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
                 hover:underline
                 hidden
                 md:block
+                text-xs
             ">
-              @{data.user.username}
+              {data.user.title}
             </span>
-            <span className="text-neutral-500 text-sm">
+            <span className="text-neutral-500 text-xs">
               {createdAt}
             </span>
           </div>
