@@ -33,6 +33,7 @@ const EditModal = () => {
     setState(currentUser?.title)
     setCity(currentUser?.city)
     setState(currentUser?.state)
+    setTitle(currentUser?.title)
   }, [currentUser?.name, currentUser?.username, currentUser?.bio, currentUser?.profileImage, currentUser?.coverImage, currentUser?.city, currentUser?.state, currentUser?.title]);
 
   const [isLoading, setIsLoading] = useState(false);

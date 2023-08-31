@@ -25,11 +25,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         name,
         username,
         bio,
-        title,
         profileImage,
         coverImage,
         city,
         state,
+        title,
       }
     });
 

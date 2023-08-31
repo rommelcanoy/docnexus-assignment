@@ -9,7 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const { currentUser } = await serverAuth(req, res);
-    console.log("🚀 ~ file: current.ts:12 ~ handler ~ currentUser:", currentUser)
 
     return res.status(200).json(currentUser);
   } catch (error) {
