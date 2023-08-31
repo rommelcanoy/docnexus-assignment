@@ -50,7 +50,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId, label }) =>
   }, [body, mutatePosts, isComment, postId, mutatePost]);
 
   return (
-    <div className="border-b-[1px] border-gray-200 px-5 py-2 mt-5">
+    <div className="px-5 py-2 mt-5">
       {currentUser ? (
         <div className="flex flex-row gap-4">
           <div>

@@ -35,6 +35,7 @@ const Avatar: React.FC<AvatarProps> = ({ userId, isLarge, hasBorder }) => {
         cursor-pointer
         relative
         bg-white
+        flex-none
       `}
     >
       <Image

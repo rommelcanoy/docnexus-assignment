@@ -89,7 +89,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
     <div className='relative'>
       {
         currentUser?.id === data.userId ?
-          <button className={`absolute right-5 top-5 bg-red-500 hover:bg-opacity-80 p-2 rounded text-white disabled:bg-red-300 disabled:text-whte`}
+          <button className={`absolute right-5 top-5 bg-gray-100 hover:bg-red-500 hover:text-white p-2 rounded text-gray-400 disabled:bg-red-300 disabled:text-white`}
             disabled={isLoading} onClick={() => onDelete(data.id)}>
             <FaTrashAlt className='w-3 h-3' />
           </button> : null

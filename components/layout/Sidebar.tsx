@@ -1,12 +1,11 @@
 import { signOut } from 'next-auth/react';
 import { BiLogOut } from 'react-icons/bi';
-import { BsHouseFill, BsBellFill } from 'react-icons/bs';
-import { FaUser } from 'react-icons/fa';
+import { BsHouseFill } from 'react-icons/bs';
+import { FaSearch, FaUser } from 'react-icons/fa';
 
 import useCurrentUser from '@/hooks/useCurrentUser';
 
 import SidebarItem from './SidebarItem';
-import SidebarLogo from './SidebarLogo';
 import SidebarPostButton from './SidebarPostButton';
 import UserSideProfile from '../users/UserSideProfile';
 import UserSideHero from '../users/UserSideHero';
@@ -31,6 +30,11 @@ const Sidebar = () => {
       label: 'Profile',
       href: `/users/${currentUser?.id}`,
       auth: true,
+    },
+    {
+      icon: FaSearch,
+      label: 'Search',
+      href: '/search',
     },
   ]
 

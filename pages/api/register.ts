@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { email, username, name, city, state, password } = req.body;
+    const { email, username, name, city, state, password, title } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -18,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email,
         username,
         name,
+        title,
         hashedPassword,
       }
     });
