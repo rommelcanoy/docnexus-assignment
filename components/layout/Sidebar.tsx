@@ -34,6 +34,17 @@ const Sidebar = () => {
     },
   ]
 
+  const handleLogout = () => {
+    const confirm = window.confirm("Are you sure you want to logout?");
+
+    if (!confirm) {
+      return;
+    }
+
+    signOut();
+
+  }
+
   return (
     <div className="col-span-1 mb-auto mr-4 md:mr-6 bg-white border mt-5 rounded-xl overflow-hidden">
       <div className="hidden md:block">
@@ -59,7 +70,7 @@ const Sidebar = () => {
               label={item.label}
             />
           ))}
-          {currentUser && <SidebarItem onClick={() => signOut()} icon={BiLogOut} label="Logout" />}
+          {currentUser && <SidebarItem onClick={handleLogout} icon={BiLogOut} label="Logout" />}
           <SidebarPostButton />
         </div>
       </div>

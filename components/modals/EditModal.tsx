@@ -9,10 +9,12 @@ import useUser from "@/hooks/useUser";
 import Input from "../Input";
 import Modal from "../Modal";
 import ImageUpload from "../ImageUpload";
+import useUsers from "@/hooks/useUsers";
 
 const EditModal = () => {
   const { data: currentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(currentUser?.id);
+  const { mutate: mutateFetchedUsers } = useUsers();
   const editModal = useEditModal();
 
   const [profileImage, setProfileImage] = useState('');
@@ -44,6 +46,7 @@ const EditModal = () => {
 
       await axios.patch('/api/edit', { name, username, bio, profileImage, coverImage, city, state, title });
       mutateFetchedUser();
+      mutateFetchedUsers();
 
       toast.success('Updated');
 
@@ -53,7 +56,7 @@ const EditModal = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [editModal, name, username, bio, mutateFetchedUser, profileImage, coverImage, city, state, title]);
+  }, [editModal, name, username, bio, mutateFetchedUser, mutateFetchedUsers, profileImage, coverImage, city, state, title]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
