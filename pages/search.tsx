@@ -91,8 +91,8 @@ const Search = () => {
           <div key={user.id} className="flex flex-row gap-4 bg-white p-3 rounded-xl border hover:bg-gray-50 cursor-pointer transition" onClick={(e) => onClick(e, user.id)}>
             <Avatar userId={user.id} />
             <div className="flex flex-col">
-              <p className="text-black font-semibold text-sm">{user.name}</p>
-              <p className="text-neutral-400 text-sm">{user.title ? user.title : `@${user.username}`}</p>
+              <p className="text-black font-semibold text-base">{user.name}</p>
+              <p className="text-neutral-700 text-sm">{user.title ? user.title : `@${user.username}`}</p>
               {
                 (user?.city || user?.state) ?
                   <p className="text-neutral-400 text-sm">{user.city}, {user.state}</p> : null
