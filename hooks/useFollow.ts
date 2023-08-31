@@ -25,6 +25,7 @@ const useFollow = (userId: string) => {
     try {
       let request;
 
+      console.log("🚀 ~ file: useFollow.ts:29 ~ toggleFollow ~ isFollowing:", isFollowing)
       if (isFollowing) {
         request = () => axios.delete('/api/follow', { data: { userId } });
       } else {

@@ -16,6 +16,8 @@ interface UserBioProps {
 const UserBio: React.FC<UserBioProps> = ({ userId }) => {
   const { data: currentUser } = useCurrentUser();
   const { data: fetchedUser } = useUser(userId);
+  // console.log("🚀 ~ file: UserBio.tsx:19 ~ fetchedUser:", fetchedUser)
+  // console.log("🚀 ~ file: UserBio.tsx:19 ~ userId:", userId)
 
   const editModal = useEditModal();
 

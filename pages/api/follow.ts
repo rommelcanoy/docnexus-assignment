@@ -27,9 +27,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error('Invalid ID');
     }
 
-    let updatedFollowingIds = [...(user.followingIds || [])];
+    let updatedFollowingIds = [...(currentUser.followingIds || [])];
+    // console.log("🚀initial updatedFollowingIds:", updatedFollowingIds)
 
     if (req.method === 'POST') {
+      // console.log('follow post starts')
+
       updatedFollowingIds.push(userId);
 
       // NOTIFICATION PART START
@@ -53,10 +56,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log(error);
       }
       // NOTIFICATION PART END
-      
+
     }
 
     if (req.method === 'DELETE') {
+      // console.log('follow delete starts')
       updatedFollowingIds = updatedFollowingIds.filter((followingId) => followingId !== userId);
     }
 
@@ -68,6 +72,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         followingIds: updatedFollowingIds
       }
     });
+
+    // console.log("🚀 ~ file: follow.ts:69 ~ handler ~ updatedFollowingIds:", updatedFollowingIds)
 
     return res.status(200).json(updatedUser);
   } catch (error) {

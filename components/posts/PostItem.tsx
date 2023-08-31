@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
+import { AiFillHeart, AiFillLike, AiOutlineHeart, AiOutlineLike, AiOutlineMessage } from 'react-icons/ai';
 import { formatDistanceToNowStrict } from 'date-fns';
 
 import useLoginModal from '@/hooks/useLoginModal';
@@ -52,7 +52,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
     toggleLike();
   }, [loginModal, currentUser, toggleLike]);
 
-  const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
+  const LikeIcon = hasLiked ? AiFillLike : AiOutlineLike;
 
   const createdAt = useMemo(() => {
     if (!data?.createdAt) {
@@ -171,9 +171,9 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
                 gap-2 
                 cursor-pointer 
                 transition 
-                hover:text-red-500
+                hover:text-blue-500
             ">
-                <LikeIcon color={hasLiked ? 'red' : ''} size={20} />
+                <LikeIcon color={hasLiked ? '#3b82f6' : ''} size={20} />
                 <p>
                   {data.likedIds.length}
                 </p>
