@@ -24,8 +24,8 @@ const UserSideProfile: React.FC<UserSideProfileProps> = ({ userId }) => {
           <p className="text-black text-base font-semibold">
             {currentUser?.name}
           </p>
-          <p className="text-md text-neutral-500">
-            @{currentUser?.username}
+          <p className="text-xs text-neutral-500">
+            {currentUser?.title}
           </p>
         </div>
       </div>
