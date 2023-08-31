@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'POST') {
       updatedLikedIds.push(currentUser.id);
 
-      // NOTIFICATION PART START
+      // notification part 
       try {
         const post = await prisma.post.findUnique({
           where: {
@@ -60,7 +60,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       } catch (error) {
         console.log(error);
       }
-      // NOTIFICATION PART END
+      // notification end
     }
 
     if (req.method === 'DELETE') {
