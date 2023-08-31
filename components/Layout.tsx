@@ -1,0 +1,30 @@
+import React from 'react';
+
+import FollowBar from "@/components/layout/FollowBar"
+import Sidebar from "@/components/layout/Sidebar"
+import Navigation from './Navigation';
+
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <>
+      <div className="min-h-screen bg-gray-150">
+        <Navigation />
+        <div className="container h-full mx-auto xl:px-30 max-w-6xl mt-[45px]">
+          <div className="grid grid-cols-4 h-full">
+            <Sidebar />
+            <div
+              className="
+              col-span-3 
+              lg:col-span-2 
+          ">
+              {children}
+            </div>
+            <FollowBar />
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Layout;
