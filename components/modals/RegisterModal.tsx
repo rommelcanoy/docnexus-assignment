@@ -17,6 +17,7 @@ const RegisterModal = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,6 +39,7 @@ const RegisterModal = () => {
         password,
         username,
         name,
+        title,
       });
 
       setIsLoading(false)
@@ -51,12 +53,11 @@ const RegisterModal = () => {
 
       registerModal.onClose();
     } catch (error) {
-      console.log("🚀 ~ file: RegisterModal.tsx:54 ~ onSubmit ~ error:", error)
       toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
     }
-  }, [email, password, registerModal, username, name]);
+  }, [email, password, registerModal, username, name, title]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -77,6 +78,12 @@ const RegisterModal = () => {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+      />
+      <Input
+        disabled={isLoading}
+        placeholder="Position Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <Input
         disabled={isLoading}
