@@ -27,7 +27,7 @@ const PostView = () => {
     <>
       <Header showBackArrow label="Post" />
       <PostItem data={fetchedPost} />
-      <Form postId={postId as string} isComment placeholder="Post your reply" label="Reply" />
+      <Form postId={postId as string} isComment placeholder="Post your comment" label="Comment" />
       <CommentFeed comments={fetchedPost?.comments} />
     </>
   );
